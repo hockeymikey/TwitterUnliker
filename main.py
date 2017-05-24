@@ -16,7 +16,9 @@ while True:
     print("Got list of {} favorites".format(len(favorites)))
     # Destroy each favorite.
     for status in favorites:
-        api.DestroyFavorite(status=status)
-        print("Destroying favorite on status {}".format(status.id))
-
+        try:
+          api.DestroyFavorite(status=status)
+          print("Destroying favorite on status {}".format(status.id))
+        except Exception as ex:
+          print(ex)
 print("All done!")
